@@ -2,3 +2,9 @@ Access details to demo site.
 User ID :	mngr662789
 Password :	qejahat
 This access is valid only for 20 days.
+
+
+
+app.reqres.in
+api key
+free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4
