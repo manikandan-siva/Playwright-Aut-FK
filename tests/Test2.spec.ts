@@ -24,6 +24,7 @@ test('complete',async({page})=>{
     //await expect(page.getByTestId('todo-title').and(page.getByText('/hello/i')),'Task added').toBeVisible();
     await expect(page.getByText(/hello/i),'Task added').toBeVisible(); 
     const box=page.getByTestId('todo-item');
+    await page.pause();
     box.filter({hasText: 'Hello, Playwright!'}).getByRole('checkbox').check();
     await expect(page.getByTestId('todo-item')).toHaveClass('completed');
 });
