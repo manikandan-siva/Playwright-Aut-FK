@@ -5,7 +5,7 @@ test.describe('Headers & Params',() =>{
         const body=await request.get('https://reqres.in/api/users/',
             {
                 headers:{
-                    'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4',
+                   // 'x-api-key':,
                 },
                 params:{
                     page : 2,
@@ -20,7 +20,7 @@ test.describe('Headers & Params',() =>{
         const body=await request.post('https://reqres.in/api/login',
             {
                  headers:{
-                    //'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4',
+                    //'x-api-key':,
                 },
                 data:{
                     email:'eve.holt@reqres.in',
@@ -34,7 +34,7 @@ test.describe('Headers & Params',() =>{
         const res=await request.get('https://reqres.in/api/users',
             {
                 headers:{
-                    //'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4',
+                    //'x-api-key':,
                     'Authorization':'Bearer ${token}',
                     'Content-Type':'application/json'
                 }

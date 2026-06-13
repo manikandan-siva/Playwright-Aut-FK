@@ -5,7 +5,7 @@ test.describe('Post Req',()=>{
         const res=await request.post('https://reqres.in/api/users/',
         {
             headers:{
-                'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+               // 'x-api-key':
             },
             data:{
                 name:'Rajendran',
@@ -23,7 +23,7 @@ test.describe('Post Req',()=>{
         const res=await request.post('https://reqres.in/api/register',
             {
                 headers:{
-                    'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+                   // 'x-api-key':
                 },
                 data:{
                     //email:'email@email.com',

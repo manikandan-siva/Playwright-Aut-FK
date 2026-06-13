@@ -5,7 +5,7 @@ test.describe('Put-Patch-Delete',()=>{
         const body=await request.get('https://reqres.in/api/users/1',
             {
                 headers:{
-                    'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+                    //'x-api-key':
                 }
             }
         )
@@ -15,7 +15,7 @@ test.describe('Put-Patch-Delete',()=>{
        const body2=await request.put('https://reqres.in/api/users/1',
             {
                 headers:{
-                    'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+                    //'x-api-key':
                 },
                 data:{
                     name: ' Radhe',
@@ -30,7 +30,7 @@ test.describe('Put-Patch-Delete',()=>{
         const body=await request.patch('https://reqres.in/api/users/1',
             {
                 headers:{
-                    'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+                    //'x-api-key':
                 },
                 data:{
                     job : 'sheperd'

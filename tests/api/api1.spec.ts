@@ -7,7 +7,7 @@ test.describe.serial('User API',()=>{
    req=await request.get('https://reqres.in/api/users/1', {
             headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': 'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4' // Replace with your actual key
+                //'x-api-key':  // Replace with your actual key
                 
             }});
    status=req.status();

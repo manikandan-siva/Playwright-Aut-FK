@@ -7,7 +7,7 @@ test.describe('APIBody',()=>{
     test.beforeEach(async({request})=>{
        res = await request.get('https://reqres.in/api/users/99',{
             headers:{
-                'x-api-key':'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+                //'x-api-key':
             }
         });
     });

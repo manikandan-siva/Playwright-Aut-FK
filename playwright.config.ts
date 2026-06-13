@@ -16,7 +16,7 @@ export default defineConfig({
     headless: true,
     screenshot: 'only-on-failure',
     extraHTTPHeaders:{
-      'x-api-key': 'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+      'x-api-key': process.env.API_KEY!
     }
    // video:'retain-on-failure',
    // trace: 'retain-on-failure'
