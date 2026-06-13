@@ -15,6 +15,9 @@ export default defineConfig({
     baseURL : process.env.BASE_URL || ' https://demo.guru99.com/V1/index.php',
     headless: true,
     screenshot: 'only-on-failure',
+    extraHTTPHeaders:{
+      'x-api-key': 'free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4'
+    }
    // video:'retain-on-failure',
    // trace: 'retain-on-failure'
   },
