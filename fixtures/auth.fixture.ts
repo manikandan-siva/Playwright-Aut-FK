@@ -11,8 +11,8 @@ export const test=base.extend<AuthFixtures>({
     loggedinPage:async({page},use)=>{
         //setup to run before every test
         const loginpage = new LoginPage(page)
-        await loginpage.goto();
-        await loginpage.login('mngr662789','qejahat')
+        await page.goto('')
+        await loginpage.login(process.env.USER!,process.env.PWD!)
         await expect(page).toHaveURL(/Manager/i)
 
         //handover page to test
