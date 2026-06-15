@@ -1,4 +1,5 @@
 import{Page,Locator} from '@playwright/test'
+import{Urls} from '../data/testData'
 
 export class LoginPage{
     readonly page : Page
@@ -20,7 +21,7 @@ export class LoginPage{
 
     //Actions
     async goto(){
-        await this.page.goto('https://demo.guru99.com/V1/index.php')
+        await this.page.goto(Urls.login)
     }
 
     async login( usr:string,pwd:string){

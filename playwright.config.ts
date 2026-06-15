@@ -12,7 +12,7 @@ export default defineConfig({
     ['list']
   ],
   use:{
-    baseURL : process.env.BASE_URL || ' https://demo.guru99.com/V1/index.php',
+    baseURL : process.env.BASE_URL || ' https://demo.guru99.com',
     headless: true,
     screenshot: 'only-on-failure',
     extraHTTPHeaders:{
