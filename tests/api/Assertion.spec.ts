@@ -1,17 +1,22 @@
-import {test,expect, APIResponse} from '@playwright/test';
+import {test,expect, APIResponse} from '../../fixtures/api.fixture'
+import {API_CONFIG} from '../../config/apiConfig' 
+import{UserListResponse} from '../../data/apiTypes'
+
+const {endpoints}=API_CONFIG.reqres
 
 test.describe('APIBody',()=>{
     let res : APIResponse;
-    let Users : any;
+    let Users : UserListResponse;
     let status: number;
-    test.beforeEach(async({request})=>{
+    /*test.beforeEach(async({request})=>{
        res = await request.get('https://reqres.in/api/users/99',{
             headers:{
                 //'x-api-key':
             }
         });
-    });
-    test('assertAPIBody',async({request})=>{
+    });*/
+    test('assertAPIBody',async({reqresContext})=>{
+        res = await reqresContext.get(endpoints.users)
         Users=await res.json();
         status= await res.status();
         expect(Users.page).toBe(1);
@@ -29,7 +34,8 @@ test.describe('APIBody',()=>{
         expect(Users.data[4].last_name).toBe('Morris');
         expect(Users.data[5].avatar).toBe('https://reqres.in/img/faces/6-image.jpg');
     })
-    test('404API',async({page})=>{
+    test('404API',async({reqresContext})=>{
+        res = await reqresContext.get(endpoints.users+'/99')
         expect(res.status()).toBe(404);
         expect(await res.json()).toEqual({});
     })

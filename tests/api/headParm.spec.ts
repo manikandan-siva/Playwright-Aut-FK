@@ -1,13 +1,13 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from '../../fixtures/api.fixture'
+import {API_CONFIG} from '../../config/apiConfig'
+
+const { endpoints } = API_CONFIG.reqres
 
 test.describe('Headers & Params',() =>{
-    test('params',async({request})=>{
-        const body=await request.get('https://reqres.in/api/users/',
+    test('params',async({reqresContext})=>{
+        const body=await reqresContext.get(endpoints.users,
             {
-                headers:{
-                   // 'x-api-key':,
-                },
-                params:{
+               params:{
                     page : 2,
                     per_page: 3
                 }
@@ -16,12 +16,9 @@ test.describe('Headers & Params',() =>{
         await expect(body).toBeOK();
         console.log(await body.json())
     })
-    test('token gen',async({request})=>{
-        const body=await request.post('https://reqres.in/api/login',
+    test('token gen',async({reqresContext})=>{
+        const body=await reqresContext.post(endpoints.login,
             {
-                 headers:{
-                    //'x-api-key':,
-                },
                 data:{
                     email:'eve.holt@reqres.in',
                    password:'cityslicka'
@@ -31,7 +28,7 @@ test.describe('Headers & Params',() =>{
         console.log(body.status(), (await body.json()).token)
         const token=(await body.json()).token
 
-        const res=await request.get('https://reqres.in/api/users',
+        const res=await reqresContext.get(endpoints.users,
             {
                 headers:{
                     //'x-api-key':,
@@ -42,12 +39,12 @@ test.describe('Headers & Params',() =>{
         )
         console.log(res.status(), await res.json(), res.headers()['content-type'])
     })
-    test('contenttype',async({request})=>{
-        const body=await request.post('https://reqres.in/api/users',
+    test('contenttype',async({reqresContext})=>{
+        const body=await reqresContext.post(endpoints.users,
             {
-                headers:{
+               /* headers:{
                     'content-type':'application/json'
-                },
+                },*/
                 data:{
                     'name':'main',
                     'job':'sdet'

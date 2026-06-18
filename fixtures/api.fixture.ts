@@ -7,11 +7,13 @@ export const test=base.extend<ApiFixtures>({
     reqresContext:async({},use)=>{
         const Contextreqres=await request.newContext({
             baseURL:API_CONFIG.reqres.baseUrl,
-            extraHTTPHeaders:{'x-api-key':process.env.API_KEY!}
+            extraHTTPHeaders:{'x-api-key':process.env.API_KEY!,
+                 'content-type':'application/json'
+            }
     })
 await use(Contextreqres)
 await Contextreqres.dispose()
 }   
 
 })
-export {expect} from '@playwright/test'
+export {expect,APIResponse} from '@playwright/test'

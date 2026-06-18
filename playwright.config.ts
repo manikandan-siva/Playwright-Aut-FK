@@ -12,12 +12,12 @@ export default defineConfig({
     ['list']
   ],
   use:{
-    baseURL : process.env.BASE_URL || ' https://demo.guru99.com',
+   // baseURL : process.env.BASE_URL || ' https://demo.guru99.com',
     headless: true,
     screenshot: 'only-on-failure',
-    extraHTTPHeaders:{
-      'x-api-key': process.env.API_KEY!
-    }
+    //extraHTTPHeaders:{
+    //  'x-api-key': process.env.API_KEY!
+   // }
    // video:'retain-on-failure',
    // trace: 'retain-on-failure'
   },
