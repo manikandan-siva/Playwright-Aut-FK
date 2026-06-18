@@ -10,8 +10,15 @@ export const Users={
      empty:{
         uid:'',
         pwd:''
-     }
+     },
+     
+//data driven testing data array
+invalidCombos : [
+    { uid: 'invalid', pwd: 'invalid', desc: 'Both Wrong' },
+    { uid: process.env.USER!, pwd: 'invalid', desc: 'PWD wrong' }
+]
 }
+
 
 export const Urls={
     login:'/V1/index.php',

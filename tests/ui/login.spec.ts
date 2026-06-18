@@ -26,4 +26,15 @@ test.describe('Banking Login Suite',()=>{
         await expect(page).not.toHaveURL(/manager/i)
     })
 
+    //data driven testing
+    Users.invalidCombos.forEach((entry)=>{
+        test(`@regression login fails - ${entry.desc}`,async({page})=>{
+            loginPage=new LoginPage(page);
+            await loginPage.goto()
+            await loginPage.login(entry.uid,entry.pwd)
+            const status=await loginPage.isLoginSuccessful()
+            expect(status).toBe(false);
+        })
+    })
+
 })

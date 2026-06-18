@@ -1,5 +1,6 @@
 import{Page,Locator} from '@playwright/test'
 import{Urls} from '../data/testData'
+import { TIMEOUT } from 'node:dns'
 
 export class LoginPage{
     readonly page : Page
@@ -32,5 +33,17 @@ export class LoginPage{
 
     async message(){
         return this.msg 
+    }
+
+    //helper method
+    async isLoginSuccessful():
+    Promise<boolean>{
+        try{
+            await this.page.waitForURL(/manger/i,
+            {timeout:5000})
+            return true
+        }catch{
+            return false
+        }
     }
 }
