@@ -8,3 +8,70 @@ This access is valid only for 20 days.
 app.reqres.in
 api key
 free_user_3EtVCaF2Tfp3zv83DOpHJXBI1X4
+
+
+https://demo.guru99.com/V1/html/addcustomerpage.php
+https://demo.guru99.com/V1/html/addAccount.php
+https://demo.guru99.com/V1/html/MiniStatementInput.php
+https://demo.guru99.com/V1/html/Logout.php
+
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://demo.guru99.com/V1/index.php');
+  await page.locator('input[name="uid"]').click();
+  await page.locator('input[name="uid"]').fill('mngr662789');
+  await page.locator('input[name="password"]').click();
+  await page.locator('input[name="password"]').click();
+  await page.locator('input[name="password"]').fill('qejahat');
+  await page.getByRole('button', { name: 'LOGIN' }).click();
+  await page.getByText('Welcome To Manager\'s Page of').click();
+  await page.getByRole('link', { name: 'New Customer' }).click();
+  await page.locator('input[name="name"]').click();
+  await page.getByRole('cell', { name: 'male female', exact: true }).click();
+  await page.getByRole('radio').nth(1).check();
+  await page.locator('#dob').fill('2026-06-19');
+  await page.locator('textarea[name="addr"]').click();
+  await page.locator('input[name="city"]').click();
+  await page.locator('input[name="state"]').click();
+  await page.locator('input[name="pinno"]').click();
+  await page.locator('input[name="telephoneno"]').click();
+  await page.locator('input[name="emailid"]').click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('link', { name: 'Manager' }).click();
+  await page.getByRole('link', { name: 'New Account' }).click();
+  await page.goto('https://demo.guru99.com/V1/html/editAccount.php');
+  await page.getByRole('link', { name: 'New Account' }).click();
+  await page.getByRole('link', { name: 'New Account' }).click();
+  await page.getByText('Add new account form').click();
+  await page.locator('input[name="cusid"]').click();
+  await page.locator('input[name="inideposit"]').click();
+  await page.getByRole('button', { name: 'submit' }).click();
+  await page.getByRole('link', { name: 'Mini Statement' }).click();
+  await page.getByRole('textbox').click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('link', { name: 'Log out' }).click();
+  await page.locator('input[name="uid"]').click();
+  await page.locator('input[name="uid"]').fill('mngr662789');
+  await page.locator('input[name="password"]').click();
+  await page.locator('input[name="password"]').fill('qejahat');
+  await page.getByRole('button', { name: 'LOGIN' }).click();
+  await page.getByRole('link', { name: 'New Customer' }).click();
+  await page.getByRole('link', { name: 'New Account' }).click();
+  await page.goto('https://demo.guru99.com/V1/html/addcustomerpage.php');
+  await page.getByRole('link', { name: 'New Account' }).click();
+  await page.getByRole('link', { name: 'Edit Account' }).click();
+  await page.getByRole('link', { name: 'New Account' }).click();
+  await page.goto('https://demo.guru99.com/V1/html/addcustomerpage.php');
+  await page.getByRole('link', { name: 'Mini Statement' }).click();
+  await page.goto('https://demo.guru99.com/V1/html/addcustomerpage.php');
+  await page.getByRole('link', { name: 'Log out' }).click();
+});
